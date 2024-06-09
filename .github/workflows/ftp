@@ -1,0 +1,22 @@
+name: 🚀 Deploy
+on:
+  push:
+    branches: [ main ]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt install lftp
+      - uses: actions/checkout@v2
+      # Here is the deployment action
+      - name: Upload from output to a remote server via FTP
+        uses: modern-dev/ftp-mirror@v2
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PWD }}
+          local_dir: "s3"
+          remote_dir: "/public_html/cozycatslondon.co.uk"
+          delete: "false"
+          exlude: "data/ cache/"
