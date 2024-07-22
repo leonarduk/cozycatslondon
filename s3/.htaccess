@@ -6,6 +6,8 @@ Redirect 301 /index.php/more-information https://cozycatslondon.co.uk/about.html
 Redirect 301 /index.php/contact-us https://cozycatslondon.co.uk/contact.html
 Redirect 301 /contact-us https://cozycatslondon.co.uk/contact.html
 
+Redirect 301 /uk-bank-holidays https://cozycatslondon.co.uk
+Redirect 301 /local-vets-pet-shops https://cozycatslondon.co.uk
 Redirect 301 /index.php/uk-bank-holidays https://cozycatslondon.co.uk
 Redirect 301 /index.php/local-vets-pet-shops https://cozycatslondon.co.uk
 Redirect 301 /index.php?option=com_nicepage&task=siteproducts https://cozycatslondon.co.uk
