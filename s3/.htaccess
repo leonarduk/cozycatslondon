@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+Redirect 301 /index.php https://cozycatslondon.co.uk
+</IfModule> 
