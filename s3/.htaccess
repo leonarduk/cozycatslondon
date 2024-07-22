@@ -1,8 +1,11 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 Redirect 301 /index.php https://cozycatslondon.co.uk
+/more-information
+Redirect 301 /more-information https://cozycatslondon.co.uk/about.html
 Redirect 301 /index.php/more-information https://cozycatslondon.co.uk/about.html
 Redirect 301 /index.php/contact-us https://cozycatslondon.co.uk/contact.html
+Redirect 301 /contact-us https://cozycatslondon.co.uk/contact.html
 
 Redirect 301 /index.php/uk-bank-holidays https://cozycatslondon.co.uk
 Redirect 301 /index.php/local-vets-pet-shops https://cozycatslondon.co.uk
