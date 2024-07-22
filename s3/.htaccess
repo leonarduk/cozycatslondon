@@ -5,11 +5,15 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 Redirect 301 /index.php https://cozycatslondon.co.uk
-Redirect 301 /home.html https://cozycatslondon.co.uk
+Redirect 301 /why-a-cat-sitter-not-a-cattery.html https://cozycatslondon.co.uk/why-a-cat-sitter.html
 Redirect 301 /more-information https://cozycatslondon.co.uk/about.html
 Redirect 301 /index.php/more-information https://cozycatslondon.co.uk/about.html
 Redirect 301 /index.php/contact-us https://cozycatslondon.co.uk/contact.html
 Redirect 301 /contact-us https://cozycatslondon.co.uk/contact.html
+
+Redirect 301 /local-vets-a-pet-shops.html https://cozycatslondon.co.uk	
+Redirect 301 /easter-2009.html https://cozycatslondon.co.uk	
+Redirect 301 /uk-bank-holidays-guide.html https://cozycatslondon.co.uk	
 
 Redirect 301 /home.html https://cozycatslondon.co.uk
 Redirect 301 /uk-bank-holidays https://cozycatslondon.co.uk
