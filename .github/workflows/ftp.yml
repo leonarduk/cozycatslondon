@@ -9,6 +9,13 @@ jobs:
     steps:
       - run: sudo apt install lftp
       - uses: actions/checkout@v2
+
+      - name: Set up Jekyll
+        uses: helaili/jekyll-action@v2
+
+      - name: Build the site
+        run: jekyll build
+
       # Here is the deployment action
       - name: Upload from output to a remote server via FTP
         uses: modern-dev/ftp-mirror@v2
