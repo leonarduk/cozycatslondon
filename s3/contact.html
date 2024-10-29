@@ -187,18 +187,50 @@
     </div>
 </section>
 <script>
-     const form = document.getElementById('contact-form');
-     form.addEventListener('submit', handleSubmit);
-     async function handleSubmit(event) { event.preventDefault(); // Prevent default form submission
-     // Get form data const formData = new FormData(event.target); try {
-     // Send AJAX request to Lambda function const response = await fetch('https://6096lrxezb.execute-api.eu-west-2.amazonaws.com/CozyCats/contact-form-handler',
-     { method: 'POST', body: formData });
-     const data = await response.text(); if (response.ok) {
-     // Success const successMessage = document.createElement('p');
-     successMessage.textContent = data; form.insertAdjacentElement('afterend', successMessage); }
-      else { // Error const errorMessage = document.createElement('p');
-      errorMessage.textContent = `Error: ${data}`;
-      form.insertAdjacentElement('afterend', errorMessage); } } catch (error) { console.error('Error:', error); // Handle error } }
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', handleSubmit);
+
+    async function handleSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        const formData = new FormData(event.target);
+
+        // Convert FormData to a URL-encoded string for correct submission
+        const body = new URLSearchParams();
+        formData.forEach((value, key) => {
+            body.append(key, value);
+        });
+
+        try {
+            // Send AJAX request to Lambda function
+            const response = await fetch('https://6096lrxezb.execute-api.eu-west-2.amazonaws.com/CozyCats/contact-form-handler', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: body.toString(),
+            });
+
+            const data = await response.json();
+
+            // Handle success or error
+            if (response.ok) {
+                // Show a success alert
+                alert(data.message || "Your message has been sent successfully.");
+
+                // Clear the form
+                form.reset();
+            } else {
+                // Show an error alert
+                alert(`Error: ${data.message || 'Something went wrong.'}`);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle fetch error
+            alert(`Error: ${error.message}`);
+        }
+    }
 </script>
 </body>
 </html>
